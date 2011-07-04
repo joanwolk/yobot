@@ -11,7 +11,7 @@ task :default => :spec
 
 task :run do
   require File.dirname(__FILE__) + '/lib/yobot'
-  
+
   login = ENV['CAMPFIRE_LOGIN']
   password = ENV['CAMPFIRE_PASSWORD']
   subdomain = ENV['CAMPFIRE_SUBDOMAIN']
@@ -22,8 +22,14 @@ task :run do
     c.max_retries = 10 # default to -1, which means perform connection retries on drop forever.
   end
 
-  bot = Yobot::Bot.new [Yobot::Behaviors::PingPong.new, Yobot::Behaviors::Dict.new, Yobot::Behaviors::Anaveda.new, Yobot::Behaviors::Sunset.new]
-  
+  bot = Yobot::Bot.new [
+    Yobot::Behaviors::PingPong.new,
+    Yobot::Behaviors::Dict.new,
+    Yobot::Behaviors::Anaveda.new,
+    Yobot::Behaviors::Sunset.new,
+    Yobot::Behaviors::Weather.new
+  ]
+
   EM.run do
     conn.authenticate do |user|
       conn.rooms do |rooms|

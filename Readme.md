@@ -36,11 +36,11 @@ Behaviors should read all the configuration they need (e.g. API credentials) fro
 * `yo translate <word>` - prints out the translation from google translate
 * `yo anaveda` - prints out today's lunch menu from anaveda.de
 * `yo sunset` / `yo sunrise` - prints out today's sunrise/sunset time
-  
+* `yo weather <city>` - prints the weather forecast
+
 #### Planned
 
 * `bvg <from> to <to>` - prints out the next train from A to B via bvg.de (Berlin)
-* `weather <city>` - prints the weather forecast
 * `remind me 20:00 <title>` - will print out a reminder at the given time
 * `help` - returns a list of commands
 * `tweet <message>` - sends a message to twitter
