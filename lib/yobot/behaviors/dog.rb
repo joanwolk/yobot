@@ -7,7 +7,7 @@ class Yobot::Behaviors::Dog
 			# This version of the Cheezburger API is deprecated as of July 2011 and may break when a new API is released
       http = request.get
       http.callback do
-        room.paste(extract_image_url(http.response)) {}
+        room.text(extract_image_url(http.response)) {}
 			end
 		end
 	end
@@ -21,12 +21,9 @@ class Yobot::Behaviors::Dog
 		def extract_image_url(xml)
     doc = Nokogiri::XML(xml)
 
-    unless doc.css('problem_cause').empty?
-      return "couldn't fetch the dog"
-    end
+    url= doc.css('Lol/LolImageUrl').text
     
-    url = doc.css('LolImageUrl').first['data']
+    "#{url}"
 
-    return "#{url}"
 		end
 end
