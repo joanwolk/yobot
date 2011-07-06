@@ -1,13 +1,22 @@
 require 'spec_helper'
 
 describe Yobot::Behaviors::Dog do
-  it "requests the image information" do
+  it "requests the image information for 'dog'" do
   	request = stub(:request)
 
 		EventMachine::HttpRequest.should_receive(:new).with('http://api.cheezburger.com/xml/category/dogs/lol/random') {request}
 		request.should_receive(:get) {stub.as_null_object}
 		
 		Yobot::Behaviors::Dog.new.react(stub, 'dog')
+	end
+
+  it "requests the image information for 'dawg'" do
+  	request = stub(:request)
+
+		EventMachine::HttpRequest.should_receive(:new).with('http://api.cheezburger.com/xml/category/dogs/lol/random') {request}
+		request.should_receive(:get) {stub.as_null_object}
+		
+		Yobot::Behaviors::Dog.new.react(stub, 'dawg')
 	end
 
   it "ignores messages that aren't dog" do

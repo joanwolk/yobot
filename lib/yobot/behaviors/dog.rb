@@ -2,7 +2,7 @@ require 'nokogiri'
 
 class Yobot::Behaviors::Dog
 	def react(room, message)
-    if message =~ /^dog/
+    if message =~ /^dog|^dawg/
       request = EventMachine::HttpRequest.new('http://api.cheezburger.com/xml/category/dogs/lol/random')
 			# This version of the Cheezburger API is deprecated as of July 2011 and may break when a new API is released
       http = request.get
