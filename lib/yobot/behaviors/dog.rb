@@ -19,11 +19,7 @@ class Yobot::Behaviors::Dog
 	private
 
 		def extract_image_url(xml)
-    doc = Nokogiri::XML(xml)
-
-    url= doc.css('Lol/LolImageUrl').text
-    
-    "#{url}"
-
+      doc = Nokogiri::XML(xml)
+      url= doc.css('Lol/LolImageUrl').text
 		end
 end
